@@ -1,0 +1,30 @@
+pwd
+
+sudo apt install vlc
+
+clear
+
+lsb_release -a = version sistema operativo
+
+uname -a = version del kernel
+
+mkdir = crea directorio
+
+ls // ls -l = me dice los directorios
+
+man = instrucciones de un comando
+
+ip addr
+
+sudo apt install openssh-server // nmap tambien hay que instalarlo
+
+nmap + ip
+
+touch archivo.txt
+
+vi // nano // nombre de archivo a editar
+
+cat/less/more nombrede archivo.txt
+
+
+
