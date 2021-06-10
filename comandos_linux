@@ -1,30 +1,49 @@
-pwd
+-------------------------------------------------------------------------------------------------------------
+comando | descripción | parametros | [ejemplo de uso]
+-------------------------------------------------------------------------------------------------------------
 
-sudo apt install vlc
+pwd : nos indica la ruta actual del directorio en el que nos encontramos: [pwd]
 
-clear
+sudo : nos permite ejecutar un comando como superuser: [sudo apt intall NOMBRE_PAQUETE]
 
-lsb_release -a = version sistema operativo
+apt: sirve para instalar paquetes en distribuciones basadas en debion o ubuntu: intall: [apt install NOMBRE_PAQUETE]
 
-uname -a = version del kernel
+clear: borra/limpia el contenido en la terminal de linux: [clear]
 
-mkdir = crea directorio
 
-ls // ls -l = me dice los directorios
+lsb_release:nos muestra la información LSB (Linux Standard Base) especifica, sobre la distribución Linux que estamos utilizando: -a: version sistema operativo
+[lsb_release -a]
 
-man = instrucciones de un comando
+uname: brinda información especifica del sistema de acuerdo al parametro utilizado: -a = version del kernel
+[uname -a]
 
-ip addr
+mkdir: crea directorio: [mkdir NOMBRE_FOLDER]
 
-sudo apt install openssh-server // nmap tambien hay que instalarlo
+ls: muestra una lista de los directorios dentro de una ruta o la ruta actual: -l: cambia el formato en e que se muestran los folders a una lista: [ls -l] 
 
-nmap + ip
+man: brinda instrucciones de un comando: [man COMANDO]
 
-touch archivo.txt
+ip addr: nos brinda la información básica sobre la configuración de red en el equipo: [ip addr]
 
-vi // nano // nombre de archivo a editar
+nmap: escanea puertos en un host, se debe instalar e paquete para poder usarse: nmap  IP_HOST: [nmap 127.0.0.1]
 
-cat/less/more nombrede archivo.txt
+touch: sirve para editar archivos de texto desde la terminal de linux: [touch ARCHIVO.txt]
+vi: sirve para editar archivos de texto desde la terminal de linux: [vi ARCHIVO.txt]
+nano: sirve para editar archivos de texto desde la terminal de linux: [nano ARCHIVO.txt]
 
+cat: lee el contenido de un archivo de texto desde la terminal de linux: [cat ARCHIVO.txt]
+more: lee el contenido de un archivo de texto desde la terminal de linux: [more ARCHIVO.txt]
+less: lee el contenido de un archivo de texto desde la terminal de linux: [ess ARCHIVO.txt]
+
+
+-----------------------------------------------------------------------------------------------------------
+paquete | descripción | parametros | [ejemplo de uso]
+-------------------------------------------------------------------------------------------------------------
+
+openssh-server: habilita el puerto SSH (22) en la computadora, basta con instalarlo para que el puerto se active.
+
+nmap: sirve para escanear los puertos abiertos en un host.
+
+vlc: programa para reproducir contenido multimedia.
 
 
