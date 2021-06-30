@@ -35,6 +35,13 @@ cat: lee el contenido de un archivo de texto desde la terminal de linux: [cat AR
 more: lee el contenido de un archivo de texto desde la terminal de linux: [more ARCHIVO.txt]
 less: lee el contenido de un archivo de texto desde la terminal de linux: [ess ARCHIVO.txt]
 
+python: lenguaje de programación, para ejecutar programas python: [python archivo_de_python.py] 
+
+free: sirve para ver el uso de RAM, la disponibilidad y demás: -h: muestra ek consumo memoria ram: [free -h]
+
+swapon, swapoff – habilitar/deshabilitar dispositivos y archivos para paginación e intercambio: [swapon/swapoff]
+
+
 
 -----------------------------------------------------------------------------------------------------------
 paquete | descripción | parametros | [ejemplo de uso]
@@ -46,4 +53,12 @@ nmap: sirve para escanear los puertos abiertos en un host.
 
 vlc: programa para reproducir contenido multimedia.
 
+python: ejecuta archivos de python
 
+--------------------------------------------------------------------------------------------------------------------------
+
+cat /proc/meminfo : lee un archivo de texto que contiene la información de la memoria.
+
+sudo mkdir /mnt/ram_disk
+sudo mount -t tmpfs -o size=1024m new_ram_disk /mnt/ram_disk
+-> crea un folder que lee los archivos más rapido pero se borran cuando la pc se apaga porque se guaran en memoria RAM
