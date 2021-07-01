@@ -41,7 +41,7 @@ free: sirve para ver el uso de RAM, la disponibilidad y demás: -h: muestra ek c
 
 swapon, swapoff – habilitar/deshabilitar dispositivos y archivos para paginación e intercambio: [swapon/swapoff]
 
-
+sudo fdisk: muestra la estructura de particiones del sistema: [sudo fdisk -l]
 
 -----------------------------------------------------------------------------------------------------------
 paquete | descripción | parametros | [ejemplo de uso]
@@ -62,3 +62,8 @@ cat /proc/meminfo : lee un archivo de texto que contiene la información de la m
 sudo mkdir /mnt/ram_disk
 sudo mount -t tmpfs -o size=1024m new_ram_disk /mnt/ram_disk
 -> crea un folder que lee los archivos más rapido pero se borran cuando la pc se apaga porque se guaran en memoria RAM
+
+---------------------------------------------------------------------------------------------------------------------------------
+
+Para visualizar los ficheros ocultos dentro del directorio individual de cada usuario, puedes hacerlo rápidamente mediante la combinación
+de comandos CTRL + F. Por cierto, y muy importante, todas los archivos y carpetas ocultas en Linux empiezan por un punto, seguido del nombre de la carpeta.
