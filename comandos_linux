@@ -1,6 +1,9 @@
--------------------------------------------------------------------------------------------------------------
+
+----------------------------------------------------------------------------------------------------------------------------------
+COMANDOS LINUX
+----------------------------------------------------------------------------------------------------------------------------------
 comando | descripción | parametros | [ejemplo de uso]
--------------------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------------------------------------
 
 pwd : nos indica la ruta actual del directorio en el que nos encontramos: [pwd]
 
@@ -9,7 +12,6 @@ sudo : nos permite ejecutar un comando como superuser: [sudo apt intall NOMBRE_P
 apt: sirve para instalar paquetes en distribuciones basadas en debion o ubuntu: intall: [apt install NOMBRE_PAQUETE]
 
 clear: borra/limpia el contenido en la terminal de linux: [clear]
-
 
 lsb_release:nos muestra la información LSB (Linux Standard Base) especifica, sobre la distribución Linux que estamos utilizando: -a: version sistema operativo
 [lsb_release -a]
@@ -43,9 +45,59 @@ swapon, swapoff – habilitar/deshabilitar dispositivos y archivos para paginaci
 
 sudo fdisk: muestra la estructura de particiones del sistema: [sudo fdisk -l]
 
------------------------------------------------------------------------------------------------------------
+sudo useradd -m nombredeusuario -G wheel -p passworddelusuario : agrega un usuario nuevo y se define la contraseña para el sistema operativo
+
+mkdir nombreDirectorio : crea un directorio
+
+chmod : sirve para editar los permisos de un directorio o un archivo : chmod u=rwx,g=rx,o=r arhivo.txt : 
+u=permisos usuario, g=permisos grupo, O=permisos otro (r=lectura, w=escritura x=ejecución)
+
+chown : cambia el propietario de un archivo o un directorio
+chown nuevousuario archivo1
+chown root /var/home/musica.mp3
+chown -R root /var/home
+
+rmdir nombreDirectorio: elimina directorios vacios
+rm : elimina archivos
+
+cd nombreDirectorio : accede a un directorio dentro del directorio actual
+cd .. : se cambia a un directorio anterior dentro del que estabamos en el momento de ejecutar el comando
+
+ls : lista los directorios dentro de otro
+
+cp : sirve para copiar archivos y directorios
+cp -rv /etc/archivoOriginal $HOME/nuevo/directorio/copia
+Esta variante slecciona todos los archivos que empiezan con a dentro de etc, copia el contenido del directorio "original" y almacena el contenido dentro de un txt en la segunda ruta
+cp -rv /etc/a* $HOME/original 1> $HOME/nuevo/directorio/copia
+
+mv : sirve para mover archivos o directorios
+mv /home/anuel/diruno/ /home/manuel/dircuatro/
+
+pkill : mata un procesos dado in PID o un nombre de proceso : sudo pkill colord
+
+history : muestra los ultimos comandos utilizados en la terminal
+
+
+----------------------------------------------------------------------------------------------------------------------------------
+COMANDOS SOLO MANJARO (ARCHLINUX)
+----------------------------------------------------------------------------------------------------------------------------------
+paquete | parametros| descripción | [ejemplo de uso]
+----------------------------------------------------------------------------------------------------------------------------------
+pacman -Syuu : actualiza los paquetes disponibles del sistema operativo
+sudo pacman -S unrar zip unzip p7zip gzip bzip2 : instala programas para comprimir y descomprimir
+
+sudo pacman -S yay
+sudo yay -S --needed base-devel : estos dos comandos sirven para instalar un repositorio AUR
+
+yay -S google-chrome : instala google chrome por medio del repositorio AUR 
+
+
+
+----------------------------------------------------------------------------------------------------------------------------------
+PAQUETES QUE SE INSTALAN
+----------------------------------------------------------------------------------------------------------------------------------
 paquete | descripción | parametros | [ejemplo de uso]
--------------------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------------------------------------
 
 openssh-server: habilita el puerto SSH (22) en la computadora, basta con instalarlo para que el puerto se active.
 
@@ -55,15 +107,87 @@ vlc: programa para reproducir contenido multimedia.
 
 python: ejecuta archivos de python
 
---------------------------------------------------------------------------------------------------------------------------
+john: programa para crakear contraseñas / hash (sudo apt-get install john -y)
 
+neofech: provee información del sistema en la terminal
+
+----------------------------------------------------------------------------------------------------------------------------------
+MEMORIA RAM 
+-----------------------------------------
 cat /proc/meminfo : lee un archivo de texto que contiene la información de la memoria.
 
 sudo mkdir /mnt/ram_disk
-sudo mount -t tmpfs -o size=1024m new_ram_disk /mnt/ram_disk
--> crea un folder que lee los archivos más rapido pero se borran cuando la pc se apaga porque se guaran en memoria RAM
 
----------------------------------------------------------------------------------------------------------------------------------
+sudo mount -t tmpfs -o size=1024m new_ram_disk /mnt/ram_disk -> crea un folder que lee los archivos más rapido pero se borran cuando la pc se apaga porque se guaran en memoria RAM
 
+sudo free : indica la memoria RAM en uso y disponible
+
+
+----------------------------------------------------------------------------------------------------------------------------------
+COMANDOS DOCKER
+---------------------------------------
+docker images: vemos las imágenes instaladas
+docker pull IMAGEN: latest -> instalar una imagen
+docker info : despliega información del Docker
+docker ps : muestra contenedores que están corriendo
+docker run -ti IMAGEN : ejecute la imagen con un terminal interactivo
+docker run -ti --rm IMAGEN : ejecute la imagen con un terminal interactivo y luego elimina el proceso
+docker rm CONTAINER ID : elimina el contenedor si está en estado EXIT
+docker rm -f CONTAINER ID : fuerza la eliminación de un contenedor incluso en estado active
+docker rmi IMAGEN:VERSION : elimina una imagen
+docker history REPOSITORIO:TAG : cantidad de capas de una imagen
+docker stop CONTAINER ID : detiene un contenedor
+
+----------------------------------------------------------------------------------------------------------------------------------
+COMANDOS BASH
+---------------------------------------
+echo: imprime un texto en a consola
+bash archivo.sh : ejecuta un script de bash
+#! /bin/bash : statement con el que inician todos los script de bash
+if [argumento]; then CODIGO else OTRO CODIGO fi : estructura if en bash
+read -p : toma la información que el usuario ingresa por medio del prompt
+suma = $(expr $Numero1 + $Numero2) : estructura de operación matematica en bash
+while [argumento] do CODIGO : estructura de repetición while
+case ARGUMENTO in 1) CODIGO 2) CODIGO... : estructura de selección switch
+exit : termina la ejecución del bash
+date --date='tomorrow' : genera y almacena la fecha
+
+----------------------------------------------------------------------------------------------------------------------------------
+COMANDOS POWERSHELL
+---------------------------------------
+clear: limpia la consola
+$variable: declara una variable para almacenar información
+read-host -prompt : toma la información que el usuario ingresa por medio del prompt de powershell
+write-host: imprime un texto en la consola
+if(argumento){}else{} : declaración de condicional en powershell
+switch(argumento){ 1{} 2{} default {} } : declaración de estructura condicional en powershell
+get-content : extrae el contenido de una variable
+Get-ChildItem -Path : extrae la información dentro de un archivo dado por una ruta
+Sort-Object Name -Descending : ordena un contenido extraído de manera descendente según su nombre
+do{}while(argumento) : estructura de repetición
+for(argumento){} : estructura de repetición
+Get-Random -Maximum 100 : genera un número random con un maximo de 100
+Get-Random -Minimum 0 -Maximum 100 : genera un número random entre dos valores
+Add-Content : agrega contenido dentro de un archivo
+Get-Process | Format-Table -Property Id, Name : obtiene los procesos que están corriendo en windows y los ordena en dos columnas por ID y nombre
+invoke-expression -Command .\ejemplo.ps1 : ejecuta un script de powershell
+
+----------------------------------------------------------------------------------------------------------------------------------
+CRON Y CRONTAB
+---------------------------------------
+Cron es un proceso en segundo plano que se ejecuta desde el mismo instante en el que arranca el sistema. Comprueba si existe alguna tarea (job) para ser 
+ejecutado de acuerdo a la hora configurada en el sistema. En función de la distribución, se inicia utilizando las carpetas /etc/rc.d/ o /etc/init.d y cada 
+minuto comprueba los ficheros /etc/crontab o /var/spool/cron es busca de posibles ejecuciones
+Crontab es un archivo de texto. Posee una lista con todos los scripts a ejecutar. Generalmente cada usuario del sistema posee su propio fichero Crontab. 
+Se considera que el ubicado en la carpeta etc pertenece al usuario root. Para generar el archivo propio, cada usuario deberá hacer uso del comando crontab
+
+EJEMPLO	Cree un script en Bash que genere un archivo nuevo en la carpeta home del usuario con el contenido “Hola Mundo”. Modifique el cron para que el script se
+ejecute todos los viernes a las 7:00pm.
+
+> crontab -e
+1 7 * * 5 bash /home/manuel/holaMundo.sh
+
+
+----------------------------------------------------------------------------------------------------------------------------------
 Para visualizar los ficheros ocultos dentro del directorio individual de cada usuario, puedes hacerlo rápidamente mediante la combinación
 de comandos CTRL + F. Por cierto, y muy importante, todas los archivos y carpetas ocultas en Linux empiezan por un punto, seguido del nombre de la carpeta.
